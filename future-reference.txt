@@ -1,0 +1,11 @@
+# pip freeze
+Output installed packages in requirements format.
+
+# django-admin startproject [project_name]
+If this is your first time using Django, you’ll have to take care of some initial setup. Namely, you’ll need to auto-generate some code that establishes a Django project – a collection of settings for an instance of Django, including database configuration, Django-specific options and application-specific settings.
+
+# python manage.py runserver
+Run development server
+
+# python manage.py startapp [app_name]
+Create an app inside a project.
