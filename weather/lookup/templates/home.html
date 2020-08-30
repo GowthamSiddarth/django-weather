@@ -2,17 +2,18 @@
 
 {% block content %}
 
-<h1>Hello World!!</h1>
-<br/>
-
 {% if api %}
     {% if api == 'Error...' %}
         There's an error. Please try later!
     {% else %}
-        Air Quality Index: {{ api.0.AQI }}<br/>
-        Area: {{ api.0.ReportingArea }}<br/>
-        Category: {{ api.0.Category.Name }}<br/>
+        <div class="jumbotron">
+          <h1 class="display-4">{{ api.0.ReportingArea }} Air Quality Report</h1>
+          <p class="lead">Air Quality Index: {{ api.0.AQI }}, Category: {{ api.0.Category.Name }}</p>
+          <hr class="my-4">
+          <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        </div>
     {% endif %}
 
 {% endif %}
+
 {% endblock %}
