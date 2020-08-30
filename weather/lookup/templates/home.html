@@ -4,6 +4,15 @@
 
 <h1>Hello World!!</h1>
 <br/>
-{{ api }}
 
+{% if api %}
+    {% if api == 'Error...' %}
+        There's an error. Please try later!
+    {% else %}
+        Air Quality Index: {{ api.0.AQI }}<br/>
+        Area: {{ api.0.ReportingArea }}<br/>
+        Category: {{ api.0.Category.Name }}<br/>
+    {% endif %}
+
+{% endif %}
 {% endblock %}
