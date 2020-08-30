@@ -3,32 +3,16 @@
 {% block content %}
 
 {% if api %}
-    {% if api == 'Error...' %}
-        There's an error. Please try later!
-    {% else %}
-        <div class="jumbotron">
-          <h1 class="display-4">{{ api.0.ReportingArea }} Air Quality Report</h1>
-          <p class="lead">Air Quality Index: {{ api.0.AQI }}, Category: {{ api.0.Category.Name }}</p>
-          <hr class="my-4">
-          {% if api.0.Category.Name == "Good" %}
-            <p>(0-50) Air Quality is considered satisfactory and air pollution poses little or no risk.</p>
-          {% elif api.0.Category.Name == "Moderate" %}
-            <p>(51-100) Air Quality is acceptable; however, for some pollutants there may be a moderate health concern
-                for a very small number of people who are unusually sensitive to air pollution.</p>
-          {% elif api.0.Category.Name == "Unhealthy for Sensitive Groups" %}
-            <p>(101-150) People with lung disease, older adults and children are at a greater risk from exposure to
-                ozone, whereas persons with heart and lung disease, older adults and children are at greater risk from
-                presence of particles in air.</p>
-          {% elif api.0.Category.Name == "Unhealthy" %}
-            <p>(151-200) Everyone may begin to experience health effects; members of sensitive groups may experience
-                more serious health effects.</p>
-          {% elif api.0.Category.Name == "Very Unhealthy" %}
-            <p>(201-300) Health alert: Everyone may experience more serious health effects.</p>
-          {% elif api.0.Category.Name == "Hazardous" %}
-            <p>(301-500) Health warning of emergency situation. The entire population is more likely to be effected.</p>
-          {% endif %}
-        </div>
-    {% endif %}
+{% if api == 'Error...' %}
+There's an error. Please try later!
+{% else %}
+<div class="jumbotron {{ category_color }}">
+    <h1 class="display-4">{{ api.0.ReportingArea }} Air Quality Report</h1>
+    <p class="lead">Air Quality Index: {{ api.0.AQI }}, Category: {{ api.0.Category.Name }}</p>
+    <hr class="my-4">
+    <p>{{ category_desc }}</p>
+</div>
+{% endif %}
 
 {% endif %}
 
