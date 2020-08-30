@@ -2,18 +2,18 @@
 
 {% block content %}
 
-{% if api %}
-{% if api == 'Error...' %}
-There's an error. Please try later!
-{% else %}
-<div class="jumbotron {{ category_color }}">
-    <h1 class="display-4">{{ api.0.ReportingArea }} Air Quality Report</h1>
-    <p class="lead">Air Quality Index: {{ api.0.AQI }}, Category: {{ api.0.Category.Name }}</p>
-    <hr class="my-4">
-    <p>{{ category_desc }}</p>
-</div>
-{% endif %}
+    {% if api %}
+        {% if api == 'Error...' %}
+            There's an error. Please try later!
+        {% else %}
+        <div class="jumbotron {{ category_color }}">
+            <h1 class="display-4">{{ api.0.ReportingArea }} Air Quality Report</h1>
+            <p class="lead">Air Quality Index: {{ api.0.AQI }}, Category: {{ api.0.Category.Name }}</p>
+            <hr class="my-4">
+            <p>{{ category_desc }}</p>
+        </div>
+        {% endif %}
 
-{% endif %}
+    {% endif %}
 
 {% endblock %}
